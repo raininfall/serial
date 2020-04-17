@@ -133,6 +133,11 @@ func (p *Port) Flush() error {
 	return purgeComm(p.fd)
 }
 
+// SetTimeout of reading serial
+func (p *Port) SetTimeout(t time.Duration) error {
+	return setCommTimeouts(p.fd, t)
+}
+
 var (
 	nSetCommState,
 	nSetCommTimeouts,
